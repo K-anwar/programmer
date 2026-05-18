@@ -24,7 +24,7 @@ function Skills() {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:border-cyan-400 hover:scale-105 transition"
+              className="bg-white/5 backdrop-blur-lg shadow-lg border border-white/10 rounded-2xl p-6 text-center hover:border-cyan-400 hover:scale-105 transition"
             >
               {skill}
             </div>

@@ -32,7 +32,7 @@ function Portfolio() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:border-cyan-400 transition"
+              className="bg-white/5 backdrop-blur-lg shadow-xl border border-white/10 rounded-3xl p-8 hover:border-cyan-400 transition"
             >
 
               <h3 className="text-2xl font-bold text-cyan-400 mb-4">
