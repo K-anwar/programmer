@@ -2,8 +2,8 @@ function Stats() {
 
   const stats = [
     { number: "20+", label: "Projects" },
-    { number: "5+", label: "Skills" },
-    { number: "3+", label: "Years Learning" },
+    { number: "15+", label: "Skills" },
+    { number: "9+", label: "Years Learning" },
     { number: "100%", label: "Passion" },
   ];
 

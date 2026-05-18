@@ -1,21 +1,25 @@
 const projects = [
   {
     title: "Trading Dashboard",
-    desc: "Forex and crypto market analysis dashboard."
+    desc: "Forex and crypto market analysis dashboard.",
+    image: `${import.meta.env.BASE_URL}projects/trading.jpg`,
   },
   {
     title: "Wedding Invitation",
-    desc: "Premium digital wedding invitation website."
+    desc: "Premium digital wedding invitation website.",
+    image: `${import.meta.env.BASE_URL}projects/wedding.jpg`,
   },
   {
     title: "Data Analyst Dashboard",
-    desc: "Interactive analytics dashboard using Power BI."
+    desc: "Interactive analytics dashboard using Power BI.",
+    image: `${import.meta.env.BASE_URL}projects/dashboard.jpg`,
   },
   {
     title: "Company Profile",
-    desc: "Modern responsive business website."
+    desc: "Modern responsive business website.",
+    image: `${import.meta.env.BASE_URL}projects/company.jpg`,
   },
-]
+];
 
 function Portfolio() {
   return (
@@ -32,16 +36,30 @@ function Portfolio() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white/5 backdrop-blur-lg shadow-xl border border-white/10 rounded-3xl p-8 hover:border-cyan-400 transition"
+              className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-cyan-400 transition duration-500"
             >
 
-              <h3 className="text-2xl font-bold text-cyan-400 mb-4">
-                {project.title}
-              </h3>
+              <div className="overflow-hidden">
 
-              <p className="text-gray-400 leading-relaxed">
-                {project.desc}
-              </p>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-64 object-cover group-hover:scale-110 transition duration-700"
+                />
+
+              </div>
+
+              <div className="p-8">
+
+                <h3 className="text-2xl font-bold text-cyan-400 mb-4">
+                  {project.title}
+                </h3>
+
+                <p className="text-gray-400 leading-relaxed">
+                  {project.desc}
+                </p>
+
+              </div>
 
             </div>
           ))}
