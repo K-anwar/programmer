@@ -1,38 +1,44 @@
-import AnimatedBackground from "./components/AnimatedBackground";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Stats from "./components/Stats";
-import Skills from "./components/Skills";
-import Portfolio from "./components/Portfolio";
-import Trading from "./components/Trading";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import { ThemeProvider } from './context/ThemeContext';
+import AnimatedBackground from './components/AnimatedBackground';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import LoadingScreen from './components/LoadingScreen';
+import AnimatedCursor from './components/AnimatedCursor';
+import AIChatbot from './components/AIChatbot';
+import Home from './pages/Home';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import Admin from './pages/Admin';
+import AnalyticsTracker from './pages/Analytics';
+import SEO from './components/SEO';
 
 function App() {
   return (
-    <div className="bg-[#050816] text-white overflow-x-hidden">
-
-      <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10">
-
-        <div className="absolute -top-25 -left-25 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
-
-        <div className="absolute -bottom-25 -right-25 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
-
-      </div>
-
-      <AnimatedBackground />
-
-      <Navbar />
-      <Hero />
-      <Stats />
-      <Skills />
-      <Portfolio />
-      <Trading />
-      <Contact />
-      <Footer />
-
-    </div>
-  )
+    <HelmetProvider>
+      <ThemeProvider>
+        <BrowserRouter basename="/programmer">
+          <SEO />
+          <AnalyticsTracker />
+          <LoadingScreen />
+          <AnimatedCursor />
+          <div className="bg-[#050816] text-white overflow-x-hidden transition-colors duration-300">
+            <AnimatedBackground />
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogPost />} />
+              <Route path="/admin" element={<Admin />} />
+            </Routes>
+            <Footer />
+            <AIChatbot />
+          </div>
+        </BrowserRouter>
+      </ThemeProvider>
+    </HelmetProvider>
+  );
 }
 
-export default App
+export default App;
